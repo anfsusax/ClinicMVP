@@ -25,7 +25,10 @@ public class PacienteService : IPacienteService
     {
         var existing = await _db.Pacientes.FindAsync(new object?[] { id }, ct);
         if (existing is null) return false;
-        _db.Pacientes.Remove(existing);
+        // Soft delete
+        existing.IsDeleted = true;
+        existing.DeletedAt = DateTime.UtcNow;
+        existing.DeletedBy = "system"; // substituir por usuário autenticado quando houver
         await _db.SaveChangesAsync(ct);
         return true;
     }

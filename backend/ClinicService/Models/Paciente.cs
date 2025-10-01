@@ -9,5 +9,10 @@ public class Paciente
     public string? Telefone { get; set; }
     public string? Email { get; set; }
 
+    // Soft delete
+    public bool IsDeleted { get; set; }
+    public DateTime? DeletedAt { get; set; }
+    public string? DeletedBy { get; set; }
+
     public ICollection<Consulta> Consultas { get; set; } = new List<Consulta>();
 }

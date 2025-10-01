@@ -2,12 +2,28 @@ using ClinicService.Data;
 using ClinicService.Services;
 using ClinicService.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using ClinicService.Interceptors;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Serilog
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .WriteTo.File(path: "Logs/clinicservice-.log", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Host.UseSerilog();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<AuditSaveChangesInterceptor>();
+
 // Services
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<AppDbContext>((sp, options) =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.AddInterceptors(sp.GetRequiredService<AuditSaveChangesInterceptor>());
+});
 
 // DI dos serviços de negócio
 builder.Services.AddScoped<IPacienteService, PacienteService>();

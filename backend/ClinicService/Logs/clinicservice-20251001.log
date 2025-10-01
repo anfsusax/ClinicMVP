@@ -1,0 +1,415 @@
+2025-10-01 14:30:35.891 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:30:36.165 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:31:06.419 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:31:06.979 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:31:07.913 -03:00 [INF] Executed DbCommand (734ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE clinicmvp;
+2025-10-01 14:31:08.236 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-10-01 14:31:08.363 -03:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:31:08.368 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:31:08.385 -03:00 [INF] Applying migration '20250930210723_InitialCreate'.
+2025-10-01 14:31:08.441 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Medicos" (
+    "Id" INTEGER NOT NULL,
+    "Nome" TEXT NOT NULL,
+    "CRM" TEXT,
+    "Especialidade" TEXT,
+    CONSTRAINT "PK_Medicos" PRIMARY KEY ("Id")
+);
+2025-10-01 14:31:08.447 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Pacientes" (
+    "Id" INTEGER NOT NULL,
+    "Nome" TEXT NOT NULL,
+    "Documento" TEXT,
+    "DataNascimento" TEXT,
+    "Telefone" TEXT,
+    "Email" TEXT,
+    CONSTRAINT "PK_Pacientes" PRIMARY KEY ("Id")
+);
+2025-10-01 14:31:08.458 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Consultas" (
+    "Id" INTEGER NOT NULL,
+    "DataHora" TEXT NOT NULL,
+    "Observacoes" TEXT,
+    "PacienteId" INTEGER NOT NULL,
+    "MedicoId" INTEGER NOT NULL,
+    CONSTRAINT "PK_Consultas" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Consultas_Medicos_MedicoId" FOREIGN KEY ("MedicoId") REFERENCES "Medicos" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_Consultas_Pacientes_PacienteId" FOREIGN KEY ("PacienteId") REFERENCES "Pacientes" ("Id") ON DELETE CASCADE
+);
+2025-10-01 14:31:08.462 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Consultas_MedicoId" ON "Consultas" ("MedicoId");
+2025-10-01 14:31:08.466 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Consultas_PacienteId" ON "Consultas" ("PacienteId");
+2025-10-01 14:31:08.467 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250930210723_InitialCreate', '8.0.8');
+2025-10-01 14:31:08.478 -03:00 [INF] Applying migration '20251001173036_Init_Postgres_Audit_SoftDelete'.
+2025-10-01 14:31:08.521 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Telefone" TYPE character varying(50);
+2025-10-01 14:31:08.527 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Nome" TYPE character varying(200);
+2025-10-01 14:31:08.534 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Email" TYPE character varying(200);
+2025-10-01 14:31:08.540 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Documento" TYPE character varying(50);
+2025-10-01 14:31:08.562 -03:00 [ERR] Failed executing DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "DataNascimento" TYPE date;
+2025-10-01 14:36:11.098 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:36:11.829 -03:00 [INF] Executed DbCommand (145ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP DATABASE clinicmvp WITH (FORCE);
+2025-10-01 14:39:21.355 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:39:21.918 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:39:22.637 -03:00 [INF] Executed DbCommand (548ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE clinicmvp;
+2025-10-01 14:39:22.948 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-10-01 14:39:23.065 -03:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:39:23.070 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:39:23.088 -03:00 [INF] Applying migration '20250930210723_InitialCreate'.
+2025-10-01 14:39:23.146 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Medicos" (
+    "Id" INTEGER NOT NULL,
+    "Nome" TEXT NOT NULL,
+    "CRM" TEXT,
+    "Especialidade" TEXT,
+    CONSTRAINT "PK_Medicos" PRIMARY KEY ("Id")
+);
+2025-10-01 14:39:23.152 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Pacientes" (
+    "Id" INTEGER NOT NULL,
+    "Nome" TEXT NOT NULL,
+    "Documento" TEXT,
+    "DataNascimento" TEXT,
+    "Telefone" TEXT,
+    "Email" TEXT,
+    CONSTRAINT "PK_Pacientes" PRIMARY KEY ("Id")
+);
+2025-10-01 14:39:23.162 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Consultas" (
+    "Id" INTEGER NOT NULL,
+    "DataHora" TEXT NOT NULL,
+    "Observacoes" TEXT,
+    "PacienteId" INTEGER NOT NULL,
+    "MedicoId" INTEGER NOT NULL,
+    CONSTRAINT "PK_Consultas" PRIMARY KEY ("Id"),
+    CONSTRAINT "FK_Consultas_Medicos_MedicoId" FOREIGN KEY ("MedicoId") REFERENCES "Medicos" ("Id") ON DELETE CASCADE,
+    CONSTRAINT "FK_Consultas_Pacientes_PacienteId" FOREIGN KEY ("PacienteId") REFERENCES "Pacientes" ("Id") ON DELETE CASCADE
+);
+2025-10-01 14:39:23.164 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Consultas_MedicoId" ON "Consultas" ("MedicoId");
+2025-10-01 14:39:23.166 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Consultas_PacienteId" ON "Consultas" ("PacienteId");
+2025-10-01 14:39:23.167 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250930210723_InitialCreate', '8.0.8');
+2025-10-01 14:39:23.174 -03:00 [INF] Applying migration '20251001173036_Init_Postgres_Audit_SoftDelete'.
+2025-10-01 14:39:23.211 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Telefone" TYPE character varying(50);
+2025-10-01 14:39:23.218 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Nome" TYPE character varying(200);
+2025-10-01 14:39:23.224 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Email" TYPE character varying(200);
+2025-10-01 14:39:23.231 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Documento" TYPE character varying(50);
+2025-10-01 14:39:23.249 -03:00 [ERR] Failed executing DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "DataNascimento" TYPE date;
+2025-10-01 14:41:20.779 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:41:21.454 -03:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:41:21.477 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:41:21.669 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:41:21.738 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:41:21.738 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:41:21.753 -03:00 [INF] Applying migration '20251001173036_Init_Postgres_Audit_SoftDelete'.
+2025-10-01 14:41:21.844 -03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Telefone" TYPE character varying(50);
+2025-10-01 14:41:21.857 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Nome" TYPE character varying(200);
+2025-10-01 14:41:21.870 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Email" TYPE character varying(200);
+2025-10-01 14:41:21.877 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Documento" TYPE character varying(50);
+2025-10-01 14:41:21.884 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "DataNascimento" TYPE date USING "DataNascimento"::date;
+2025-10-01 14:41:21.898 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Id" TYPE integer;
+ALTER TABLE "Pacientes" ALTER COLUMN "Id" DROP DEFAULT;
+ALTER TABLE "Pacientes" ALTER COLUMN "Id" ADD GENERATED BY DEFAULT AS IDENTITY;
+2025-10-01 14:41:21.899 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ADD "DeletedAt" timestamp with time zone;
+2025-10-01 14:41:21.899 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ADD "DeletedBy" text;
+2025-10-01 14:41:21.903 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ADD "IsDeleted" boolean NOT NULL DEFAULT FALSE;
+2025-10-01 14:41:21.911 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "Nome" TYPE character varying(200);
+2025-10-01 14:41:21.918 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "Especialidade" TYPE character varying(100);
+2025-10-01 14:41:21.922 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "CRM" TYPE character varying(50);
+2025-10-01 14:41:21.926 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "Id" TYPE integer;
+ALTER TABLE "Medicos" ALTER COLUMN "Id" DROP DEFAULT;
+ALTER TABLE "Medicos" ALTER COLUMN "Id" ADD GENERATED BY DEFAULT AS IDENTITY;
+2025-10-01 14:41:21.928 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "PacienteId" TYPE integer;
+2025-10-01 14:41:21.929 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "Observacoes" TYPE text;
+2025-10-01 14:41:21.930 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "MedicoId" TYPE integer;
+2025-10-01 14:41:21.965 -03:00 [ERR] Failed executing DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "DataHora" TYPE timestamp with time zone;
+2025-10-01 14:42:13.399 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:42:14.089 -03:00 [INF] Executed DbCommand (74ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:42:14.115 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:42:14.327 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:42:14.407 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:42:14.408 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:42:14.432 -03:00 [INF] Applying migration '20251001173036_Init_Postgres_Audit_SoftDelete'.
+2025-10-01 14:42:14.510 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Telefone" TYPE character varying(50);
+2025-10-01 14:42:14.516 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Nome" TYPE character varying(200);
+2025-10-01 14:42:14.529 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Email" TYPE character varying(200);
+2025-10-01 14:42:14.535 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Documento" TYPE character varying(50);
+2025-10-01 14:42:14.542 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "DataNascimento" TYPE date USING "DataNascimento"::date;
+2025-10-01 14:42:14.556 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ALTER COLUMN "Id" TYPE integer;
+ALTER TABLE "Pacientes" ALTER COLUMN "Id" DROP DEFAULT;
+ALTER TABLE "Pacientes" ALTER COLUMN "Id" ADD GENERATED BY DEFAULT AS IDENTITY;
+2025-10-01 14:42:14.557 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ADD "DeletedAt" timestamp with time zone;
+2025-10-01 14:42:14.557 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ADD "DeletedBy" text;
+2025-10-01 14:42:14.559 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Pacientes" ADD "IsDeleted" boolean NOT NULL DEFAULT FALSE;
+2025-10-01 14:42:14.567 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "Nome" TYPE character varying(200);
+2025-10-01 14:42:14.575 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "Especialidade" TYPE character varying(100);
+2025-10-01 14:42:14.579 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "CRM" TYPE character varying(50);
+2025-10-01 14:42:14.583 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Medicos" ALTER COLUMN "Id" TYPE integer;
+ALTER TABLE "Medicos" ALTER COLUMN "Id" DROP DEFAULT;
+ALTER TABLE "Medicos" ALTER COLUMN "Id" ADD GENERATED BY DEFAULT AS IDENTITY;
+2025-10-01 14:42:14.584 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "PacienteId" TYPE integer;
+2025-10-01 14:42:14.585 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "Observacoes" TYPE text;
+2025-10-01 14:42:14.586 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "MedicoId" TYPE integer;
+2025-10-01 14:42:14.597 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "DataHora" TYPE timestamp with time zone USING "DataHora"::timestamp with time zone;
+2025-10-01 14:42:14.600 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Consultas" ALTER COLUMN "Id" TYPE integer;
+ALTER TABLE "Consultas" ALTER COLUMN "Id" DROP DEFAULT;
+ALTER TABLE "Consultas" ALTER COLUMN "Id" ADD GENERATED BY DEFAULT AS IDENTITY;
+2025-10-01 14:42:14.608 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AuditLogs" (
+    "Id" bigint GENERATED BY DEFAULT AS IDENTITY,
+    "Entity" character varying(200) NOT NULL,
+    "EntityId" character varying(200) NOT NULL,
+    "Action" character varying(20) NOT NULL,
+    "OldValues" text,
+    "NewValues" text,
+    "ChangedBy" character varying(200),
+    "ChangedAtUtc" timestamp with time zone NOT NULL,
+    "RequestId" character varying(100),
+    CONSTRAINT "PK_AuditLogs" PRIMARY KEY ("Id")
+);
+2025-10-01 14:42:14.609 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20251001173036_Init_Postgres_Audit_SoftDelete', '8.0.8');
+2025-10-01 14:56:47.672 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 14:56:48.430 -03:00 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:56:48.457 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:56:48.548 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:56:48.616 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 14:56:48.617 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 14:56:48.634 -03:00 [INF] No migrations were applied. The database is already up to date.
+2025-10-01 14:56:48.940 -03:00 [INF] Now listening on: http://localhost:5000
+2025-10-01 14:56:48.944 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-01 14:56:48.944 -03:00 [INF] Hosting environment: Development
+2025-10-01 14:56:48.944 -03:00 [INF] Content root path: C:\anf\clinicmvp\ClinicMVP\backend\ClinicService
+2025-10-01 15:14:35.623 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-01 15:14:35.756 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 134.2052ms
+2025-10-01 15:14:35.783 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+2025-10-01 15:14:35.811 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-10-01 15:14:35.816 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 200 144929 text/css 32.4371ms
+2025-10-01 15:14:36.062 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-01 15:14:36.066 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - null null
+2025-10-01 15:14:36.068 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-10-01 15:14:36.068 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - 200 628 image/png 1.3896ms
+2025-10-01 15:14:36.215 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 152.6925ms
+2025-10-01 15:14:43.377 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/Pacientes - null null
+2025-10-01 15:14:43.386 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-01 15:14:43.391 -03:00 [INF] Executing endpoint 'ClinicService.Controllers.PacientesController.GetAll (ClinicService)'
+2025-10-01 15:14:43.429 -03:00 [INF] Route matched with {action = "GetAll", controller = "Pacientes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[ClinicService.DTOs.PacienteReadDto]]] GetAll(System.String, System.String, System.Threading.CancellationToken) on controller ClinicService.Controllers.PacientesController (ClinicService).
+2025-10-01 15:14:43.947 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataNascimento", p."DeletedAt", p."DeletedBy", p."Documento", p."Email", p."IsDeleted", p."Nome", p."Telefone"
+FROM "Pacientes" AS p
+WHERE NOT (p."IsDeleted")
+2025-10-01 15:14:43.966 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ClinicService.DTOs.PacienteReadDto, ClinicService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-01 15:14:43.985 -03:00 [INF] Executed action ClinicService.Controllers.PacientesController.GetAll (ClinicService) in 552.2517ms
+2025-10-01 15:14:43.986 -03:00 [INF] Executed endpoint 'ClinicService.Controllers.PacientesController.GetAll (ClinicService)'
+2025-10-01 15:14:43.992 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/Pacientes - 200 null application/json; charset=utf-8 614.8239ms
+2025-10-01 15:14:55.005 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Pacientes - application/json 126
+2025-10-01 15:14:55.010 -03:00 [INF] CORS policy execution successful.
+2025-10-01 15:14:55.012 -03:00 [INF] Executing endpoint 'ClinicService.Controllers.PacientesController.Create (ClinicService)'
+2025-10-01 15:14:55.021 -03:00 [INF] Route matched with {action = "Create", controller = "Pacientes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ClinicService.DTOs.PacienteReadDto]] Create(ClinicService.DTOs.PacienteCreateDto, System.Threading.CancellationToken) on controller ClinicService.Controllers.PacientesController (ClinicService).
+2025-10-01 15:14:55.476 -03:00 [INF] Executed DbCommand (25ms) [Parameters=[@p0='?', @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p8='?' (DbType = Date), @p9='?' (DbType = DateTime), @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Action", "ChangedAtUtc", "ChangedBy", "Entity", "EntityId", "NewValues", "OldValues", "RequestId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING "Id";
+INSERT INTO "Pacientes" ("DataNascimento", "DeletedAt", "DeletedBy", "Documento", "Email", "IsDeleted", "Nome", "Telefone")
+VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15)
+RETURNING "Id";
+2025-10-01 15:14:55.540 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'ClinicService.DTOs.PacienteReadDto'.
+2025-10-01 15:14:55.567 -03:00 [INF] Executed action ClinicService.Controllers.PacientesController.Create (ClinicService) in 545.1709ms
+2025-10-01 15:14:55.567 -03:00 [INF] Executed endpoint 'ClinicService.Controllers.PacientesController.Create (ClinicService)'
+2025-10-01 15:14:55.567 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/Pacientes - 201 null application/json; charset=utf-8 562.0718ms
+2025-10-01 15:15:15.527 -03:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5000/api/Pacientes/1 - application/json 124
+2025-10-01 15:15:15.528 -03:00 [INF] CORS policy execution successful.
+2025-10-01 15:15:15.528 -03:00 [INF] Executing endpoint 'ClinicService.Controllers.PacientesController.Update (ClinicService)'
+2025-10-01 15:15:15.535 -03:00 [INF] Route matched with {action = "Update", controller = "Pacientes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Update(Int32, ClinicService.DTOs.PacienteUpdateDto, System.Threading.CancellationToken) on controller ClinicService.Controllers.PacientesController (ClinicService).
+2025-10-01 15:15:15.624 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataNascimento", p."DeletedAt", p."DeletedBy", p."Documento", p."Email", p."IsDeleted", p."Nome", p."Telefone"
+FROM "Pacientes" AS p
+WHERE NOT (p."IsDeleted") AND p."Id" = @__p_0
+LIMIT 1
+2025-10-01 15:15:15.658 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p9='?' (DbType = Int32), @p8='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Action", "ChangedAtUtc", "ChangedBy", "Entity", "EntityId", "NewValues", "OldValues", "RequestId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING "Id";
+UPDATE "Pacientes" SET "Nome" = @p8
+WHERE "Id" = @p9;
+2025-10-01 15:15:15.665 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-01 15:15:15.665 -03:00 [INF] Executed action ClinicService.Controllers.PacientesController.Update (ClinicService) in 129.7249ms
+2025-10-01 15:15:15.665 -03:00 [INF] Executed endpoint 'ClinicService.Controllers.PacientesController.Update (ClinicService)'
+2025-10-01 15:15:15.665 -03:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5000/api/Pacientes/1 - 204 null null 138.7945ms
+2025-10-01 15:15:29.851 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5000/api/Pacientes/1 - null null
+2025-10-01 15:15:29.852 -03:00 [INF] CORS policy execution successful.
+2025-10-01 15:15:29.852 -03:00 [INF] Executing endpoint 'ClinicService.Controllers.PacientesController.Delete (ClinicService)'
+2025-10-01 15:15:29.860 -03:00 [INF] Route matched with {action = "Delete", controller = "Pacientes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Delete(Int32, System.Threading.CancellationToken) on controller ClinicService.Controllers.PacientesController (ClinicService).
+2025-10-01 15:15:29.877 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataNascimento", p."DeletedAt", p."DeletedBy", p."Documento", p."Email", p."IsDeleted", p."Nome", p."Telefone"
+FROM "Pacientes" AS p
+WHERE NOT (p."IsDeleted") AND p."Id" = @__p_0
+LIMIT 1
+2025-10-01 15:15:29.890 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?' (DbType = DateTime), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?', @p11='?' (DbType = Int32), @p8='?' (DbType = DateTime), @p9='?', @p10='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AuditLogs" ("Action", "ChangedAtUtc", "ChangedBy", "Entity", "EntityId", "NewValues", "OldValues", "RequestId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+RETURNING "Id";
+UPDATE "Pacientes" SET "DeletedAt" = @p8, "DeletedBy" = @p9, "IsDeleted" = @p10
+WHERE "Id" = @p11;
+2025-10-01 15:15:29.893 -03:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-01 15:15:29.893 -03:00 [INF] Executed action ClinicService.Controllers.PacientesController.Delete (ClinicService) in 32.034ms
+2025-10-01 15:15:29.893 -03:00 [INF] Executed endpoint 'ClinicService.Controllers.PacientesController.Delete (ClinicService)'
+2025-10-01 15:15:29.893 -03:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5000/api/Pacientes/1 - 204 null null 42.3032ms
+2025-10-01 15:16:04.546 -03:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5000/api/Pacientes/1 - null null
+2025-10-01 15:16:04.548 -03:00 [INF] CORS policy execution successful.
+2025-10-01 15:16:04.549 -03:00 [INF] Executing endpoint 'ClinicService.Controllers.PacientesController.Delete (ClinicService)'
+2025-10-01 15:16:04.553 -03:00 [INF] Route matched with {action = "Delete", controller = "Pacientes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Delete(Int32, System.Threading.CancellationToken) on controller ClinicService.Controllers.PacientesController (ClinicService).
