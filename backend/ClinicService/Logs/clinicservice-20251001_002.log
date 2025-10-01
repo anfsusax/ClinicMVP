@@ -1,0 +1,253 @@
+2025-10-01 20:16:14.162 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 20:16:15.118 -03:00 [INF] Executed DbCommand (103ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:16:15.153 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:16:15.278 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:16:15.385 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:16:15.386 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:16:15.403 -03:00 [INF] No migrations were applied. The database is already up to date.
+2025-10-01 20:16:15.706 -03:00 [INF] Now listening on: http://localhost:5000
+2025-10-01 20:16:15.708 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-01 20:16:15.709 -03:00 [INF] Hosting environment: Development
+2025-10-01 20:16:15.709 -03:00 [INF] Content root path: C:\anf\clinicmvp\ClinicMVP\backend\ClinicService
+2025-10-01 20:16:17.945 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - null null
+2025-10-01 20:16:18.008 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - 301 0 null 64.5453ms
+2025-10-01 20:16:18.014 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+2025-10-01 20:16:18.109 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 200 null text/html;charset=utf-8 94.9108ms
+2025-10-01 20:16:18.129 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+2025-10-01 20:16:18.137 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+2025-10-01 20:16:18.137 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+2025-10-01 20:16:18.177 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-10-01 20:16:18.177 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-10-01 20:16:18.182 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 200 144929 text/css 52.308ms
+2025-10-01 20:16:18.182 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 44.5128ms
+2025-10-01 20:16:18.188 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-10-01 20:16:18.189 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 51.7198ms
+2025-10-01 20:16:18.405 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2025-10-01 20:16:18.548 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 143.5345ms
+2025-10-01 20:18:43.885 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 20:18:44.572 -03:00 [INF] Executed DbCommand (74ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:18:44.597 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:18:44.701 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:18:44.885 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:18:44.886 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:18:44.901 -03:00 [INF] No migrations were applied. The database is already up to date.
+2025-10-01 20:18:45.047 -03:00 [INF] Now listening on: http://localhost:5155
+2025-10-01 20:18:45.049 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-01 20:18:45.049 -03:00 [INF] Hosting environment: Development
+2025-10-01 20:18:45.049 -03:00 [INF] Content root path: C:\anf\clinicmvp\ClinicMVP\backend\clinicService
+2025-10-01 20:19:45.905 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/ - null null
+2025-10-01 20:19:45.943 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-10-01 20:19:45.947 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/ - 404 0 null 44.0782ms
+2025-10-01 20:19:45.951 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/, Response status code: 404
+2025-10-01 20:19:53.958 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger - null null
+2025-10-01 20:19:53.960 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger - 301 0 null 2.2778ms
+2025-10-01 20:19:53.963 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-10-01 20:19:54.037 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 73.9718ms
+2025-10-01 20:19:54.057 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/swagger-ui.css - null null
+2025-10-01 20:19:54.064 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/swagger-ui-bundle.js - null null
+2025-10-01 20:19:54.064 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/swagger-ui-standalone-preset.js - null null
+2025-10-01 20:19:54.074 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-10-01 20:19:54.074 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-10-01 20:19:54.075 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-10-01 20:19:54.077 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 13.5366ms
+2025-10-01 20:19:54.077 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 13.1713ms
+2025-10-01 20:19:54.077 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/swagger-ui.css - 200 144929 text/css 20.4345ms
+2025-10-01 20:19:54.329 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-10-01 20:19:54.452 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 122.871ms
+2025-10-01 20:23:56.658 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Pacientes - null null
+2025-10-01 20:23:56.664 -03:00 [INF] Executing endpoint 'ClinicService.Controllers.PacientesController.GetAll (ClinicService)'
+2025-10-01 20:23:56.689 -03:00 [INF] Route matched with {action = "GetAll", controller = "Pacientes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[ClinicService.DTOs.PacienteReadDto]]] GetAll(System.String, System.String, System.Threading.CancellationToken) on controller ClinicService.Controllers.PacientesController (ClinicService).
+2025-10-01 20:23:57.210 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataNascimento", p."DeletedAt", p."DeletedBy", p."Documento", p."Email", p."IsDeleted", p."Nome", p."Telefone"
+FROM "Pacientes" AS p
+WHERE NOT (p."IsDeleted")
+2025-10-01 20:23:57.224 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ClinicService.DTOs.PacienteReadDto, ClinicService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-01 20:23:57.238 -03:00 [INF] Executed action ClinicService.Controllers.PacientesController.GetAll (ClinicService) in 545.2704ms
+2025-10-01 20:23:57.238 -03:00 [INF] Executed endpoint 'ClinicService.Controllers.PacientesController.GetAll (ClinicService)'
+2025-10-01 20:23:57.243 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Pacientes - 200 null application/json; charset=utf-8 584.3557ms
+2025-10-01 20:24:04.081 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Pacientes - null null
+2025-10-01 20:24:04.082 -03:00 [INF] Executing endpoint 'ClinicService.Controllers.PacientesController.GetAll (ClinicService)'
+2025-10-01 20:24:04.083 -03:00 [INF] Route matched with {action = "GetAll", controller = "Pacientes"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[ClinicService.DTOs.PacienteReadDto]]] GetAll(System.String, System.String, System.Threading.CancellationToken) on controller ClinicService.Controllers.PacientesController (ClinicService).
+2025-10-01 20:24:04.162 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataNascimento", p."DeletedAt", p."DeletedBy", p."Documento", p."Email", p."IsDeleted", p."Nome", p."Telefone"
+FROM "Pacientes" AS p
+WHERE NOT (p."IsDeleted")
+2025-10-01 20:24:04.185 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[ClinicService.DTOs.PacienteReadDto, ClinicService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-01 20:24:04.185 -03:00 [INF] Executed action ClinicService.Controllers.PacientesController.GetAll (ClinicService) in 102.3473ms
+2025-10-01 20:24:04.185 -03:00 [INF] Executed endpoint 'ClinicService.Controllers.PacientesController.GetAll (ClinicService)'
+2025-10-01 20:24:04.186 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Pacientes - 200 null application/json; charset=utf-8 105.362ms
+2025-10-01 20:24:04.299 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/favicon.ico - null null
+2025-10-01 20:24:04.299 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/favicon.ico - 404 0 null 0.4954ms
+2025-10-01 20:24:04.299 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/favicon.ico, Response status code: 404
+2025-10-01 20:25:57.041 -03:00 [INF] Application is shutting down...
+2025-10-01 20:26:04.096 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 20:26:04.814 -03:00 [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:26:04.840 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:26:04.949 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:26:05.052 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:26:05.053 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:26:05.075 -03:00 [INF] No migrations were applied. The database is already up to date.
+2025-10-01 20:26:05.226 -03:00 [INF] Now listening on: http://localhost:7235
+2025-10-01 20:26:05.228 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-01 20:26:05.228 -03:00 [INF] Hosting environment: Development
+2025-10-01 20:26:05.228 -03:00 [INF] Content root path: C:\anf\clinicmvp\ClinicMVP\backend\clinicService
+2025-10-01 20:27:38.590 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7235/swagger/index.html - null null
+2025-10-01 20:27:38.715 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7235/swagger/index.html - 200 null text/html;charset=utf-8 126.7493ms
+2025-10-01 20:27:38.746 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7235/swagger/swagger-ui.css - null null
+2025-10-01 20:27:38.750 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7235/swagger/swagger-ui-bundle.js - null null
+2025-10-01 20:27:38.751 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7235/swagger/swagger-ui-standalone-preset.js - null null
+2025-10-01 20:27:38.765 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-10-01 20:27:38.765 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-10-01 20:27:38.765 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-10-01 20:27:38.768 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7235/swagger/swagger-ui.css - 200 144929 text/css 22.5296ms
+2025-10-01 20:27:38.768 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7235/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 18.7142ms
+2025-10-01 20:27:38.768 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7235/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 17.2847ms
+2025-10-01 20:27:39.016 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7235/swagger/v1/swagger.json - null null
+2025-10-01 20:27:39.021 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:7235/swagger/favicon-32x32.png - null null
+2025-10-01 20:27:39.021 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-10-01 20:27:39.022 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7235/swagger/favicon-32x32.png - 200 628 image/png 0.5393ms
+2025-10-01 20:27:39.143 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:7235/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 127.0452ms
+2025-10-01 20:34:43.261 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 20:34:43.989 -03:00 [INF] Executed DbCommand (70ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:34:44.013 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:34:44.131 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:34:44.223 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:34:44.224 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:34:44.239 -03:00 [INF] No migrations were applied. The database is already up to date.
+2025-10-01 20:34:44.382 -03:00 [INF] Now listening on: http://localhost:7235
+2025-10-01 20:34:44.383 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-01 20:34:44.383 -03:00 [INF] Hosting environment: Development
+2025-10-01 20:34:44.383 -03:00 [INF] Content root path: C:\anf\clinicmvp\ClinicMVP\backend\ClinicService
+2025-10-01 20:34:54.867 -03:00 [INF] Application is shutting down...
+2025-10-01 20:42:13.427 -03:00 [WRN] Entity 'Paciente' has a global query filter defined and is the required end of a relationship with the entity 'Consulta'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2025-10-01 20:42:14.114 -03:00 [INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:42:14.139 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:42:14.266 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:42:14.357 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-10-01 20:42:14.358 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-10-01 20:42:14.377 -03:00 [INF] No migrations were applied. The database is already up to date.
+2025-10-01 20:42:14.510 -03:00 [INF] Now listening on: http://localhost:5000
+2025-10-01 20:42:14.512 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-01 20:42:14.512 -03:00 [INF] Hosting environment: Development
+2025-10-01 20:42:14.512 -03:00 [INF] Content root path: C:\anf\clinicmvp\ClinicMVP\backend\ClinicService
+2025-10-01 20:42:16.250 -03:00 [INF] Application is shutting down...

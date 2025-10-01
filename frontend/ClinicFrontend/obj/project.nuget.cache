@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jzPZJUIMDH8=",
+  "dgSpecHash": "L9XVZOKThvY=",
   "success": true,
-  "projectFilePath": "C:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj",
+  "projectFilePath": "c:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexfeitoza\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.10\\microsoft.aspnetcore.authorization.8.0.10.nupkg.sha512",
     "C:\\Users\\alexfeitoza\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.10\\microsoft.aspnetcore.components.8.0.10.nupkg.sha512",

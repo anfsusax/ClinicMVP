@@ -55,11 +55,11 @@ public class PacientesController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-        public async Task<ActionResult> Update(int id, [FromBody] PacienteUpdateDto dto, CancellationToken ct)
+    public async Task<ActionResult> Update(int id, [FromBody] PacienteUpdateDto dto, CancellationToken ct)
     {
         var entity = new Paciente
         {
-            Nome = dto.Nome,
+            Nome = dto.Nome ?? string.Empty,
             Documento = dto.Documento,
             DataNascimento = dto.DataNascimento,
             Telefone = dto.Telefone,

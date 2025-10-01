@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj": {}
+    "c:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj": {}
   },
   "projects": {
-    "C:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj": {
+    "c:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj",
+        "projectUniqueName": "c:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj",
         "projectName": "ClinicFrontend",
-        "projectPath": "C:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj",
+        "projectPath": "c:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj",
         "packagesPath": "C:\\Users\\alexfeitoza\\.nuget\\packages\\",
-        "outputPath": "C:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\obj\\",
+        "outputPath": "c:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

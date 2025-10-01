@@ -1034,7 +1034,7 @@ C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\compressed\6
 C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\compressed\4ffeotz30e-{0}-lfu7j35m59-lfu7j35m59.gz
 C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\compressed\eimjr9pjqe-{0}-oyz0vx2fzb-oyz0vx2fzb.gz
 C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\swae.build.ex.cache
-C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\staticwebassets\htmlassetplaceholders\build\jw7p7rz3nh.html
-C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\compressed\2ky6fmzish-{0}-v1srlu0x25-v1srlu0x25.gz
-C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\compressed\b5sta5yjha-{0}-e8oihgj8vl-e8oihgj8vl.gz
-C:\anf\clinicmvp\ClinicMVP\frontend\clinicFrontEnd\obj\Debug\net8.0\compressed\8pq0ohkcfm-{0}-y4di1rjdg4-y4di1rjdg4.gz
+c:\anf\clinicmvp\ClinicMVP\frontend\ClinicFrontend\obj\Debug\net8.0\staticwebassets\htmlassetplaceholders\build\31vf1m0zlz.html
+c:\anf\clinicmvp\ClinicMVP\frontend\ClinicFrontend\obj\Debug\net8.0\compressed\2ky6fmzish-{0}-lwsx76vaag-lwsx76vaag.gz
+c:\anf\clinicmvp\ClinicMVP\frontend\ClinicFrontend\obj\Debug\net8.0\compressed\b5sta5yjha-{0}-o1h93cewn5-o1h93cewn5.gz
+c:\anf\clinicmvp\ClinicMVP\frontend\ClinicFrontend\obj\Debug\net8.0\compressed\8pq0ohkcfm-{0}-jbsop3gu7v-jbsop3gu7v.gz
