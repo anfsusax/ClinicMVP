@@ -26,11 +26,11 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Migrate/Create database automatically (dev only)
+// Apply database migrations automatically (dev only)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.EnsureCreated();
+    db.Database.Migrate();
 }
 
 if (app.Environment.IsDevelopment())

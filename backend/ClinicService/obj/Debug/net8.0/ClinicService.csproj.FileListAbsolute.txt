@@ -129,3 +129,4 @@ C:\anf\clinicmvp\ClinicMVP\backend\ClinicService\obj\Debug\net8.0\refint\ClinicS
 C:\anf\clinicmvp\ClinicMVP\backend\ClinicService\obj\Debug\net8.0\ClinicService.pdb
 C:\anf\clinicmvp\ClinicMVP\backend\ClinicService\obj\Debug\net8.0\ClinicService.genruntimeconfig.cache
 C:\anf\clinicmvp\ClinicMVP\backend\ClinicService\obj\Debug\net8.0\ref\ClinicService.dll
+C:\anf\clinicmvp\ClinicMVP\backend\ClinicService\obj\Debug\net8.0\ClinicService.sourcelink.json

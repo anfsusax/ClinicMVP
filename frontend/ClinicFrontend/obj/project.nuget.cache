@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "h1UAihk5IIM=",
+  "dgSpecHash": "jzPZJUIMDH8=",
   "success": true,
   "projectFilePath": "C:\\anf\\clinicmvp\\ClinicMVP\\frontend\\ClinicFrontend\\ClinicFrontend.csproj",
   "expectedPackageFiles": [
@@ -29,7 +29,7 @@
     "C:\\Users\\alexfeitoza\\.nuget\\packages\\microsoft.jsinterop\\8.0.10\\microsoft.jsinterop.8.0.10.nupkg.sha512",
     "C:\\Users\\alexfeitoza\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.10\\microsoft.jsinterop.webassembly.8.0.10.nupkg.sha512",
     "C:\\Users\\alexfeitoza\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.20\\microsoft.net.illink.tasks.8.0.20.nupkg.sha512",
-    "C:\\Users\\alexfeitoza\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.9\\microsoft.net.sdk.webassembly.pack.9.0.9.nupkg.sha512",
+    "C:\\Users\\alexfeitoza\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\10.0.0-rc.1.25451.107\\microsoft.net.sdk.webassembly.pack.10.0.0-rc.1.25451.107.nupkg.sha512",
     "C:\\Users\\alexfeitoza\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512"
   ],
   "logs": []

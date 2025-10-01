@@ -44,11 +44,23 @@ public class PacienteService : IPacienteService
     {
         var existing = await _db.Pacientes.FindAsync(new object?[] { id }, ct);
         if (existing is null) return false;
-        existing.Nome = entity.Nome;
-        existing.Documento = entity.Documento;
-        existing.DataNascimento = entity.DataNascimento;
-        existing.Telefone = entity.Telefone;
-        existing.Email = entity.Email;
+
+        // Atualização parcial: só sobrescreve quando o valor foi informado
+        if (!string.IsNullOrWhiteSpace(entity.Nome))
+            existing.Nome = entity.Nome;
+
+        if (entity.Documento is not null)
+            existing.Documento = entity.Documento;
+
+        if (entity.DataNascimento.HasValue)
+            existing.DataNascimento = entity.DataNascimento;
+
+        if (entity.Telefone is not null)
+            existing.Telefone = entity.Telefone;
+
+        if (entity.Email is not null)
+            existing.Email = entity.Email;
+
         await _db.SaveChangesAsync(ct);
         return true;
     }
