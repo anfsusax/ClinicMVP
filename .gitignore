@@ -1,0 +1,64 @@
+# =========================
+# .NET + Blazor + SQLite + Docker
+# =========================
+
+# Build
+bin/
+obj/
+out/
+Debug/
+Release/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Logs
+*.log
+Logs/
+backend/ClinicService/Logs/
+
+# SQLite Database
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+# Entity Framework Migrations snapshots
+[Mm]igrations/*Designer.cs
+
+# Coverage / test results
+*.coverage
+*.coveragexml
+TestResults/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+*.scc
+.nuget/
+packages/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# Docker
+**/docker-compose.override.yml
+**/docker-compose.override.*.yml
+
+# Node (caso use Angular no futuro)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Blazor WebAssembly publish artifacts
+dist/
